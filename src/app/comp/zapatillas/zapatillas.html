@@ -1,0 +1,42 @@
+<main class="container">
+    <p class="fs-5 mt-5 alert alert-primary text-center shadow">
+        <span class="fw-medium">Ejercicio 2:</span>
+        Búsqueda de zapatillas por marca y precio
+    </p>
+
+    <div>
+        <section class="my-5">
+            <label class="text-primary">Buscar por marca o precio</label>
+            <input type="text" class="form-control my-2 w-50 text-bg-light" placeholder="Marca o Precio"
+                    [(ngModel)]="filtroXMarcaPrecio" />
+        </section>
+        <section class="table-responsive mt-4">
+            <table class="table table-bordered table-hover align-middle text-center shadow">
+                <thead class="">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(z of listaZapatillas | buscar: filtroXMarcaPrecio; track z.id) {
+                        <tr>
+                            <td>{{z.nombre}}</td>
+                            <td>
+                                <img src={{z.imagen}} alt="imagen de zapatillas" class="w-50" />
+                            </td>
+                            <td><span class="badge bg-success fs-6">{{ z.precio | currency }}</span></td>
+                            <td>{{z.marca}}</td>
+                            <td>{{z.modelo}}</td>
+                            <td>{{z.stock}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
