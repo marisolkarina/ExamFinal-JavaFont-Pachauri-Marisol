@@ -26,18 +26,21 @@ export class Juego {
   adivino2: boolean = false;
 
   enviarNumero1(form: NgForm) {
-    if (!form.valid || this.intentos1 >= 2 || this.adivino1) {
+    if (!form.valid) {
       this.mensaje1 = 'Numero invalido';
       return;
     }
+
+    if (this.intentos1 >= 2 || this.adivino1) return;
+
     this.intentos1++;
 
-    if (this.numero1===this.numeroAl1) {
+    if (this.numero1 === this.numeroAl1) {
       const puntos = (this.intentos1 === 1 ? 100 : 50);
       this.puntajeTotal += puntos;
       this.mensaje1 = `Ganaste ${puntos} puntos`;
       this.adivino1 = true;
-    } else if (this.intentos1===2) {
+    } else if (this.intentos1 === 2) {
       this.mensaje1 = `¡Fallaste! El numero era ${this.numeroAl1}.`;
     } else {
       this.mensaje1 = 'Incorrecto, te queda 1 intento.';
@@ -48,10 +51,14 @@ export class Juego {
   }
 
   enviarNumero2(form: NgForm) {
-    if (!form.valid || this.intentos2 >= 2 || this.adivino2) {
+
+    if (!form.valid) {
       this.mensaje2 = 'Numero invalido';
       return;
     }
+
+    if (this.intentos2 >= 2 || this.adivino2) return;
+
     this.intentos2++;
 
     if (this.numero2 === this.numeroAl2) {
