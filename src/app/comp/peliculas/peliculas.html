@@ -1,0 +1,102 @@
+<main class="container">
+    <p class="fs-5 mt-5 alert alert-primary text-center shadow">
+        <span class="fw-medium">Ejercicio 4:</span>
+        Películas: Listar, registrar y eliminar
+    </p>
+
+    <div class="row">
+
+        <section class="col col-lg-4 col-md-12">
+            <form [formGroup]="form" (ngSubmit)="registrar()" class="border border-1 shadow p-3 my-4">
+                <p class="fs-5">Registro de película</p>
+                <label class="my-2">Ingrese nombre de la pelicula</label>
+                <input type="text" placeholder="Nombre" class="form-control" formControlName="nombre" />
+
+                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                    <div class="text-danger fs-6 lead">
+                        @if(form.get('nombre')?.errors?.['required']){
+                            Falta ingresar el nombre de la pelicula
+                        }
+                    </div>
+                }
+
+                <label class="my-2">Ingrese año de estreno</label>
+                <input type="text" placeholder="estreno" class="form-control my-1" formControlName="estreno" />
+                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                    <div class="text-danger fs-6 lead">
+                        @if(form.get('nombre')?.errors?.['required']){
+                            Falta ingresar el año de estreno
+                        }
+                    </div>
+                }
+
+                <label class="my-2">Ingrese genero</label>
+                <input type="text" placeholder="Genero" class="form-control my-1" formControlName="genero" />
+                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                    <div class="text-danger fs-6 lead">
+                        @if(form.get('nombre')?.errors?.['required']){
+                            Falta ingresar el genero
+                        }
+                    </div>
+                }
+
+                <label class="my-2">Ingrese duracion</label>
+                <input type="number" placeholder="Duracion" class="form-control my-1" formControlName="duracion" />
+                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                    <div class="text-danger fs-6 lead">
+                        @if(form.get('nombre')?.errors?.['required']){
+                            <p>Falta ingresar la duracion</p>
+                        }
+                        @if(form.get('duracion')?.errors?.['min']){
+                            <p>La duración mínima es de 60 minutos</p>
+                        }
+                    </div>
+                }
+
+                <label class="my-2">Ingrese calificacion [1-10]</label>
+                <input type="number" placeholder="Calificacion" class="form-control my-1" formControlName="calificacion" />
+                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                    <div class="text-danger fs-6 lead">
+                        @if(form.get('nombre')?.errors?.['required']){
+                            <p>Falta ingresar la calificacion</p>
+                        }
+                        @if(form.get('calificacion')?.errors?.['min']){
+                            <p>La calificación mínima es 1</p>
+                        }
+                        @if(form.get('calificacion')?.errors?.['max']){
+                            <p>La calificación máxima es 10</p>
+                        }
+                    </div>
+                }
+
+                <div class="d-flex justify-content-between">
+                    <button class="my-2 btn btn-primary" type="submit" [disabled]="form.invalid">Registrar</button>
+                    <button class="my-2 btn btn-dark" (click)="limpiar()">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="col col-lg-8 col-md-12">
+            <div class="row">
+                @for(p of peliculas; track p.id){
+                    <div class="col col-md-6 col-lg-4">
+                        <div class="card shadow mb-5">
+                            <div class="card-header card-header text-center bg-primary-subtle fw-semibold">
+                                <p>{{p.nombre}}</p>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Año de estreno: </strong>{{p.estreno}}</p>
+                                <p><strong>Genero: </strong>{{p.genero}}</p>
+                                <p><strong>Duracion: </strong>{{p.duracion}} min</p>
+                                <p><strong>Calificacion: </strong>{{p.calificacion}} / 10</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-sm btn-danger" (click)="eliminar(p.id!)">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</main>

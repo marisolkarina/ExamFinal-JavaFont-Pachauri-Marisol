@@ -1,0 +1,52 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "nombre": "Hereditario",
+      "estreno": "2018",
+      "genero": "suspenso",
+      "duracion": 100,
+      "calificacion": 9
+    },
+    {
+      "id": 2,
+      "nombre": "Anabelle 1",
+      "estreno": "2014",
+      "genero": "terror",
+      "duracion": 90,
+      "calificacion": 7
+    },
+    {
+      "id": 3,
+      "nombre": "Titanic",
+      "estreno": "1998",
+      "genero": "drama",
+      "duracion": 90,
+      "calificacion": 6
+    },
+    {
+      "id": 4,
+      "nombre": "La la land",
+      "estreno": "2016",
+      "genero": "romance",
+      "duracion": 80,
+      "calificacion": 7
+    },
+    {
+      "id": 5,
+      "nombre": "Ben Hur",
+      "estreno": "1959",
+      "genero": "accion",
+      "duracion": 100,
+      "calificacion": 9
+    },
+    {
+      "id": 6,
+      "nombre": "El efecto mariposa",
+      "estreno": "2004",
+      "genero": "thriller psicologico",
+      "duracion": 100,
+      "calificacion": 9
+    }
+  ]
+}
