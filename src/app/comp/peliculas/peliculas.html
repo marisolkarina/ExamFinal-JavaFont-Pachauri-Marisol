@@ -22,9 +22,9 @@
 
                 <label class="my-2">Ingrese año de estreno</label>
                 <input type="text" placeholder="estreno" class="form-control my-1" formControlName="estreno" />
-                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                @if(form.get('estreno')?.invalid && form.get('estreno')?.touched){
                     <div class="text-danger fs-6 lead">
-                        @if(form.get('nombre')?.errors?.['required']){
+                        @if(form.get('estreno')?.errors?.['required']){
                             Falta ingresar el año de estreno
                         }
                     </div>
@@ -32,9 +32,9 @@
 
                 <label class="my-2">Ingrese genero</label>
                 <input type="text" placeholder="Genero" class="form-control my-1" formControlName="genero" />
-                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                @if(form.get('genero')?.invalid && form.get('genero')?.touched){
                     <div class="text-danger fs-6 lead">
-                        @if(form.get('nombre')?.errors?.['required']){
+                        @if(form.get('genero')?.errors?.['required']){
                             Falta ingresar el genero
                         }
                     </div>
@@ -42,9 +42,9 @@
 
                 <label class="my-2">Ingrese duracion</label>
                 <input type="number" placeholder="Duracion" class="form-control my-1" formControlName="duracion" />
-                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                @if(form.get('duracion')?.invalid && form.get('duracion')?.touched){
                     <div class="text-danger fs-6 lead">
-                        @if(form.get('nombre')?.errors?.['required']){
+                        @if(form.get('duracion')?.errors?.['required']){
                             <p>Falta ingresar la duracion</p>
                         }
                         @if(form.get('duracion')?.errors?.['min']){
@@ -55,9 +55,9 @@
 
                 <label class="my-2">Ingrese calificacion [1-10]</label>
                 <input type="number" placeholder="Calificacion" class="form-control my-1" formControlName="calificacion" />
-                @if(form.get('nombre')?.invalid && form.get('nombre')?.touched){
+                @if(form.get('calificacion')?.invalid && form.get('calificacion')?.touched){
                     <div class="text-danger fs-6 lead">
-                        @if(form.get('nombre')?.errors?.['required']){
+                        @if(form.get('calificacion')?.errors?.['required']){
                             <p>Falta ingresar la calificacion</p>
                         }
                         @if(form.get('calificacion')?.errors?.['min']){
